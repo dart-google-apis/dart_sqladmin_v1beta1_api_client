@@ -19,7 +19,6 @@ class BackupRunsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<BackupRun> get(core.String project, core.String instance, core.String backupConfiguration, core.String dueTime, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/backupRuns/{backupConfiguration}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -42,16 +41,13 @@ class BackupRunsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new BackupRun.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new BackupRun.fromJson(data));
   }
 
   /**
@@ -70,7 +66,6 @@ class BackupRunsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<BackupRunsListResponse> list(core.String project, core.String instance, core.String backupConfiguration, {core.int maxResults, core.String pageToken, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/backupRuns";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -93,16 +88,13 @@ class BackupRunsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new BackupRunsListResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new BackupRunsListResponse.fromJson(data));
   }
 }
 
@@ -121,7 +113,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesDeleteResponse> delete(core.String project, core.String instance, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -140,16 +131,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "DELETE", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesDeleteResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesDeleteResponse.fromJson(data));
   }
 
   /**
@@ -164,7 +152,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesExportResponse> export(InstancesExportRequest request, core.String project, core.String instance, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/export";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -183,16 +170,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesExportResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesExportResponse.fromJson(data));
   }
 
   /**
@@ -205,7 +189,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<DatabaseInstance> get(core.String project, core.String instance, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -224,16 +207,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new DatabaseInstance.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new DatabaseInstance.fromJson(data));
   }
 
   /**
@@ -248,7 +228,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesImportResponse> import(InstancesImportRequest request, core.String project, core.String instance, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/import";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -267,16 +246,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesImportResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesImportResponse.fromJson(data));
   }
 
   /**
@@ -289,7 +265,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesInsertResponse> insert(DatabaseInstance request, core.String project, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -306,16 +281,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesInsertResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesInsertResponse.fromJson(data));
   }
 
   /**
@@ -330,7 +302,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesListResponse> list(core.String project, {core.int maxResults, core.String pageToken, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -349,16 +320,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesListResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesListResponse.fromJson(data));
   }
 
   /**
@@ -373,7 +341,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesUpdateResponse> patch(DatabaseInstance request, core.String project, core.String instance, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -392,16 +359,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "PATCH", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesUpdateResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesUpdateResponse.fromJson(data));
   }
 
   /**
@@ -414,7 +378,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesRestartResponse> restart(core.String project, core.String instance, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/restart";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -433,16 +396,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesRestartResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesRestartResponse.fromJson(data));
   }
 
   /**
@@ -459,7 +419,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesRestoreBackupResponse> restoreBackup(core.String project, core.String instance, core.String backupConfiguration, core.String dueTime, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/restoreBackup";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -482,16 +441,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesRestoreBackupResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesRestoreBackupResponse.fromJson(data));
   }
 
   /**
@@ -506,7 +462,6 @@ class InstancesResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstancesUpdateResponse> update(DatabaseInstance request, core.String project, core.String instance, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -525,16 +480,13 @@ class InstancesResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "PUT", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstancesUpdateResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstancesUpdateResponse.fromJson(data));
   }
 }
 
@@ -555,7 +507,6 @@ class OperationsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<InstanceOperation> get(core.String project, core.String instance, core.String operation, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/operations/{operation}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -576,16 +527,13 @@ class OperationsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new InstanceOperation.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new InstanceOperation.fromJson(data));
   }
 
   /**
@@ -602,7 +550,6 @@ class OperationsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<OperationsListResponse> list(core.String project, core.String instance, {core.int maxResults, core.String pageToken, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "projects/{project}/instances/{instance}/operations";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -623,16 +570,13 @@ class OperationsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new OperationsListResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new OperationsListResponse.fromJson(data));
   }
 }
 
@@ -647,7 +591,6 @@ class TiersResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<TiersListResponse> list({core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "tiers";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -662,16 +605,13 @@ class TiersResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new TiersListResponse.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new TiersListResponse.fromJson(data));
   }
 }
 

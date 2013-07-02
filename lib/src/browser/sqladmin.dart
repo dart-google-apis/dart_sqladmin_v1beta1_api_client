@@ -13,6 +13,9 @@ class Sqladmin extends BrowserClient {
   TiersResource_ _tiers;
   TiersResource_ get tiers => _tiers;
 
+  /** OAuth Scope2: MESSAGE UNDER CONSTRUCTION View and manage your data across Google Cloud Platform services */
+  static const core.String CLOUD_PLATFORM_SCOPE = "https://www.googleapis.com/auth/cloud-platform";
+
   /** OAuth Scope2: Manage your Google SQL Service instances */
   static const core.String SQLSERVICE_ADMIN_SCOPE = "https://www.googleapis.com/auth/sqlservice.admin";
 

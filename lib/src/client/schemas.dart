@@ -251,7 +251,11 @@ UNKNOWN_STATE: The state of the instance is unknown. */
   /** Create new DatabaseInstance from JSON data */
   DatabaseInstance.fromJson(core.Map json) {
     if (json.containsKey("currentDiskSize")) {
-      currentDiskSize = json["currentDiskSize"];
+      if(json["currentDiskSize"] is core.String){
+        currentDiskSize = core.int.parse(json["currentDiskSize"]);
+      }else{
+        currentDiskSize = json["currentDiskSize"];
+      }
     }
     if (json.containsKey("databaseVersion")) {
       databaseVersion = json["databaseVersion"];
@@ -266,7 +270,11 @@ UNKNOWN_STATE: The state of the instance is unknown. */
       kind = json["kind"];
     }
     if (json.containsKey("maxDiskSize")) {
-      maxDiskSize = json["maxDiskSize"];
+      if(json["maxDiskSize"] is core.String){
+        maxDiskSize = core.int.parse(json["maxDiskSize"]);
+      }else{
+        maxDiskSize = json["maxDiskSize"];
+      }
     }
     if (json.containsKey("project")) {
       project = json["project"];
@@ -1167,10 +1175,18 @@ class Tier {
   /** Create new Tier from JSON data */
   Tier.fromJson(core.Map json) {
     if (json.containsKey("DiskQuota")) {
-      DiskQuota = json["DiskQuota"];
+      if(json["DiskQuota"] is core.String){
+        DiskQuota = core.int.parse(json["DiskQuota"]);
+      }else{
+        DiskQuota = json["DiskQuota"];
+      }
     }
     if (json.containsKey("RAM")) {
-      RAM = json["RAM"];
+      if(json["RAM"] is core.String){
+        RAM = core.int.parse(json["RAM"]);
+      }else{
+        RAM = json["RAM"];
+      }
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
