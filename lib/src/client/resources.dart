@@ -1,9 +1,11 @@
-part of sqladmin_v1beta1_api_client;
+part of sqladmin_v1beta1_api;
 
-class BackupRunsResource_ extends Resource {
+class BackupRunsResource_ {
 
-  BackupRunsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  BackupRunsResource_(Client client) :
+      _client = client;
 
   /**
    * Retrieves a resource containing information about a backup run.
@@ -98,10 +100,12 @@ class BackupRunsResource_ extends Resource {
   }
 }
 
-class InstancesResource_ extends Resource {
+class InstancesResource_ {
 
-  InstancesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  InstancesResource_(Client client) :
+      _client = client;
 
   /**
    * Deletes a database instance.
@@ -490,10 +494,12 @@ class InstancesResource_ extends Resource {
   }
 }
 
-class OperationsResource_ extends Resource {
+class OperationsResource_ {
 
-  OperationsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  OperationsResource_(Client client) :
+      _client = client;
 
   /**
    * Retrieves an instance operation that has been performed on an instance.
@@ -580,10 +586,12 @@ class OperationsResource_ extends Resource {
   }
 }
 
-class TiersResource_ extends Resource {
+class TiersResource_ {
 
-  TiersResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  TiersResource_(Client client) :
+      _client = client;
 
   /**
    * Lists all available service tiers for Google Cloud SQL, for example D1, D2. For related information, see Pricing.

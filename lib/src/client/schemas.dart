@@ -1,4 +1,4 @@
-part of sqladmin_v1beta1_api_client;
+part of sqladmin_v1beta1_api;
 
 /** Database instance backup configuration. */
 class BackupConfiguration {
@@ -172,10 +172,7 @@ class BackupRunsListResponse {
   /** Create new BackupRunsListResponse from JSON data */
   BackupRunsListResponse.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new BackupRun.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new BackupRun.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -190,10 +187,7 @@ class BackupRunsListResponse {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -251,11 +245,7 @@ UNKNOWN_STATE: The state of the instance is unknown. */
   /** Create new DatabaseInstance from JSON data */
   DatabaseInstance.fromJson(core.Map json) {
     if (json.containsKey("currentDiskSize")) {
-      if(json["currentDiskSize"] is core.String){
-        currentDiskSize = core.int.parse(json["currentDiskSize"]);
-      }else{
-        currentDiskSize = json["currentDiskSize"];
-      }
+      currentDiskSize = (json["currentDiskSize"] is core.String) ? core.int.parse(json["currentDiskSize"]) : json["currentDiskSize"];
     }
     if (json.containsKey("databaseVersion")) {
       databaseVersion = json["databaseVersion"];
@@ -270,11 +260,7 @@ UNKNOWN_STATE: The state of the instance is unknown. */
       kind = json["kind"];
     }
     if (json.containsKey("maxDiskSize")) {
-      if(json["maxDiskSize"] is core.String){
-        maxDiskSize = core.int.parse(json["maxDiskSize"]);
-      }else{
-        maxDiskSize = json["maxDiskSize"];
-      }
+      maxDiskSize = (json["maxDiskSize"] is core.String) ? core.int.parse(json["maxDiskSize"]) : json["maxDiskSize"];
     }
     if (json.containsKey("project")) {
       project = json["project"];
@@ -351,19 +337,13 @@ class ExportContext {
   /** Create new ExportContext from JSON data */
   ExportContext.fromJson(core.Map json) {
     if (json.containsKey("database")) {
-      database = [];
-      json["database"].forEach((item) {
-        database.add(item);
-      });
+      database = json["database"].toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
     if (json.containsKey("table")) {
-      table = [];
-      json["table"].forEach((item) {
-        table.add(item);
-      });
+      table = json["table"].toList();
     }
     if (json.containsKey("uri")) {
       uri = json["uri"];
@@ -375,19 +355,13 @@ class ExportContext {
     var output = new core.Map();
 
     if (database != null) {
-      output["database"] = new core.List();
-      database.forEach((item) {
-        output["database"].add(item);
-      });
+      output["database"] = database.toList();
     }
     if (kind != null) {
       output["kind"] = kind;
     }
     if (table != null) {
-      output["table"] = new core.List();
-      table.forEach((item) {
-        output["table"].add(item);
-      });
+      output["table"] = table.toList();
     }
     if (uri != null) {
       output["uri"] = uri;
@@ -422,10 +396,7 @@ class ImportContext {
       kind = json["kind"];
     }
     if (json.containsKey("uri")) {
-      uri = [];
-      json["uri"].forEach((item) {
-        uri.add(item);
-      });
+      uri = json["uri"].toList();
     }
   }
 
@@ -440,10 +411,7 @@ class ImportContext {
       output["kind"] = kind;
     }
     if (uri != null) {
-      output["uri"] = new core.List();
-      uri.forEach((item) {
-        output["uri"].add(item);
-      });
+      output["uri"] = uri.toList();
     }
 
     return output;
@@ -502,10 +470,7 @@ class InstanceOperation {
       enqueuedTime = json["enqueuedTime"];
     }
     if (json.containsKey("error")) {
-      error = [];
-      json["error"].forEach((item) {
-        error.add(new OperationError.fromJson(item));
-      });
+      error = json["error"].map((errorItem) => new OperationError.fromJson(errorItem)).toList();
     }
     if (json.containsKey("exportContext")) {
       exportContext = new ExportContext.fromJson(json["exportContext"]);
@@ -547,10 +512,7 @@ class InstanceOperation {
       output["enqueuedTime"] = enqueuedTime;
     }
     if (error != null) {
-      output["error"] = new core.List();
-      error.forEach((item) {
-        output["error"].add(item.toJson());
-      });
+      output["error"] = error.map((errorItem) => errorItem.toJson()).toList();
     }
     if (exportContext != null) {
       output["exportContext"] = exportContext.toJson();
@@ -813,10 +775,7 @@ class InstancesListResponse {
   /** Create new InstancesListResponse from JSON data */
   InstancesListResponse.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new DatabaseInstance.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new DatabaseInstance.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -831,10 +790,7 @@ class InstancesListResponse {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1018,10 +974,7 @@ class OperationsListResponse {
   /** Create new OperationsListResponse from JSON data */
   OperationsListResponse.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new InstanceOperation.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new InstanceOperation.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1036,10 +989,7 @@ class OperationsListResponse {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1089,16 +1039,10 @@ ON_DEMAND: The instance is activated upon receiving requests. */
       activationPolicy = json["activationPolicy"];
     }
     if (json.containsKey("authorizedGaeApplications")) {
-      authorizedGaeApplications = [];
-      json["authorizedGaeApplications"].forEach((item) {
-        authorizedGaeApplications.add(item);
-      });
+      authorizedGaeApplications = json["authorizedGaeApplications"].toList();
     }
     if (json.containsKey("backupConfiguration")) {
-      backupConfiguration = [];
-      json["backupConfiguration"].forEach((item) {
-        backupConfiguration.add(new BackupConfiguration.fromJson(item));
-      });
+      backupConfiguration = json["backupConfiguration"].map((backupConfigurationItem) => new BackupConfiguration.fromJson(backupConfigurationItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1122,16 +1066,10 @@ ON_DEMAND: The instance is activated upon receiving requests. */
       output["activationPolicy"] = activationPolicy;
     }
     if (authorizedGaeApplications != null) {
-      output["authorizedGaeApplications"] = new core.List();
-      authorizedGaeApplications.forEach((item) {
-        output["authorizedGaeApplications"].add(item);
-      });
+      output["authorizedGaeApplications"] = authorizedGaeApplications.toList();
     }
     if (backupConfiguration != null) {
-      output["backupConfiguration"] = new core.List();
-      backupConfiguration.forEach((item) {
-        output["backupConfiguration"].add(item.toJson());
-      });
+      output["backupConfiguration"] = backupConfiguration.map((backupConfigurationItem) => backupConfigurationItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1175,27 +1113,16 @@ class Tier {
   /** Create new Tier from JSON data */
   Tier.fromJson(core.Map json) {
     if (json.containsKey("DiskQuota")) {
-      if(json["DiskQuota"] is core.String){
-        DiskQuota = core.int.parse(json["DiskQuota"]);
-      }else{
-        DiskQuota = json["DiskQuota"];
-      }
+      DiskQuota = (json["DiskQuota"] is core.String) ? core.int.parse(json["DiskQuota"]) : json["DiskQuota"];
     }
     if (json.containsKey("RAM")) {
-      if(json["RAM"] is core.String){
-        RAM = core.int.parse(json["RAM"]);
-      }else{
-        RAM = json["RAM"];
-      }
+      RAM = (json["RAM"] is core.String) ? core.int.parse(json["RAM"]) : json["RAM"];
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
     if (json.containsKey("region")) {
-      region = [];
-      json["region"].forEach((item) {
-        region.add(item);
-      });
+      region = json["region"].toList();
     }
     if (json.containsKey("tier")) {
       tier = json["tier"];
@@ -1216,10 +1143,7 @@ class Tier {
       output["kind"] = kind;
     }
     if (region != null) {
-      output["region"] = new core.List();
-      region.forEach((item) {
-        output["region"].add(item);
-      });
+      output["region"] = region.toList();
     }
     if (tier != null) {
       output["tier"] = tier;
@@ -1245,10 +1169,7 @@ class TiersListResponse {
   /** Create new TiersListResponse from JSON data */
   TiersListResponse.fromJson(core.Map json) {
     if (json.containsKey("items")) {
-      items = [];
-      json["items"].forEach((item) {
-        items.add(new Tier.fromJson(item));
-      });
+      items = json["items"].map((itemsItem) => new Tier.fromJson(itemsItem)).toList();
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
@@ -1260,10 +1181,7 @@ class TiersListResponse {
     var output = new core.Map();
 
     if (items != null) {
-      output["items"] = new core.List();
-      items.forEach((item) {
-        output["items"].add(item.toJson());
-      });
+      output["items"] = items.map((itemsItem) => itemsItem.toJson()).toList();
     }
     if (kind != null) {
       output["kind"] = kind;
@@ -1277,3 +1195,16 @@ class TiersListResponse {
 
 }
 
+core.Map _mapMap(core.Map source, [core.Object convert(core.Object source) = null]) {
+  assert(source != null);
+  var result = new dart_collection.LinkedHashMap();
+  source.forEach((core.String key, value) {
+    assert(key != null);
+    if(convert == null) {
+      result[key] = value;
+    } else {
+      result[key] = convert(value);
+    }
+  });
+  return result;
+}
