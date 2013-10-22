@@ -10,9 +10,9 @@ class BackupRunsResource_ {
   /**
    * Retrieves a resource containing information about a backup run.
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [backupConfiguration] - Identifier for the backup configuration. This gets generated automatically when a backup configuration is created.
    *
@@ -55,9 +55,9 @@ class BackupRunsResource_ {
   /**
    * Lists all backup runs associated with a given instance and configuration in the reverse chronological order of the enqueued time.
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [backupConfiguration] - Identifier for the backup configuration. This gets generated automatically when a backup configuration is created.
    *
@@ -108,11 +108,11 @@ class InstancesResource_ {
       _client = client;
 
   /**
-   * Deletes a database instance.
+   * Deletes a Cloud SQL instance.
    *
-   * [project] - Project ID of the project that contains the instance to be deleted. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance to be deleted.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [optParams] - Additional query parameters
    */
@@ -145,13 +145,13 @@ class InstancesResource_ {
   }
 
   /**
-   * Exports data from a database instance to a Google Cloud Storage bucket as a MySQL dump file.
+   * Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a MySQL dump file.
    *
    * [request] - InstancesExportRequest to send in this request
    *
-   * [project] - Project ID of the project that contains the instance to be exported. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance to be exported.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [optParams] - Additional query parameters
    */
@@ -184,11 +184,11 @@ class InstancesResource_ {
   }
 
   /**
-   * Retrieves a resource containing information about a database instance.
+   * Retrieves a resource containing information about a Cloud SQL instance.
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [optParams] - Additional query parameters
    */
@@ -221,13 +221,13 @@ class InstancesResource_ {
   }
 
   /**
-   * Imports data into a database instance from a MySQL dump file in Google Cloud Storage.
+   * Imports data into a Cloud SQL instance from a MySQL dump file in Google Cloud Storage.
    *
    * [request] - InstancesImportRequest to send in this request
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [optParams] - Additional query parameters
    */
@@ -260,11 +260,11 @@ class InstancesResource_ {
   }
 
   /**
-   * Creates a new database instance.
+   * Creates a new Cloud SQL instance.
    *
    * [request] - DatabaseInstance to send in this request
    *
-   * [project] - Project ID of the project to which the newly created database instances should belong. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project to which the newly created Cloud SQL instances should belong.
    *
    * [optParams] - Additional query parameters
    */
@@ -297,7 +297,7 @@ class InstancesResource_ {
   /**
    * Lists instances under a given project in the alphabetical order of the instance name.
    *
-   * [project] - Project ID of the project for which to list database instances. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project for which to list Cloud SQL instances.
    *
    * [maxResults] - The maximum number of results to return per response.
    *
@@ -334,13 +334,13 @@ class InstancesResource_ {
   }
 
   /**
-   * Updates settings of a database instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.. This method supports patch semantics.
+   * Updates settings of a Cloud SQL instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.. This method supports patch semantics.
    *
    * [request] - DatabaseInstance to send in this request
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [optParams] - Additional query parameters
    */
@@ -373,11 +373,11 @@ class InstancesResource_ {
   }
 
   /**
-   * Restarts a database instance.
+   * Restarts a Cloud SQL instance.
    *
-   * [project] - Project ID of the project that contains the instance to be restarted. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance to be restarted.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [optParams] - Additional query parameters
    */
@@ -410,11 +410,11 @@ class InstancesResource_ {
   }
 
   /**
-   * Restores a backup of a database instance.
+   * Restores a backup of a Cloud SQL instance.
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [backupConfiguration] - The identifier of the backup configuration. This gets generated automatically when a backup configuration is created.
    *
@@ -455,13 +455,13 @@ class InstancesResource_ {
   }
 
   /**
-   * Updates settings of a database instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.
+   * Updates settings of a Cloud SQL instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.
    *
    * [request] - DatabaseInstance to send in this request
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [optParams] - Additional query parameters
    */
@@ -504,9 +504,9 @@ class OperationsResource_ {
   /**
    * Retrieves an instance operation that has been performed on an instance.
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [operation] - Instance operation ID.
    *
@@ -543,11 +543,11 @@ class OperationsResource_ {
   }
 
   /**
-   * Lists all instance operations that have been performed on the given database instance in the reverse chronological order of the start time.
+   * Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time.
    *
-   * [project] - Project ID of the project that contains the instance. You can find this on the project summary page of the Google APIs Console.
+   * [project] - Project ID of the project that contains the instance.
    *
-   * [instance] - Database instance ID. This does not include the project ID.
+   * [instance] - Cloud SQL instance ID. This does not include the project ID.
    *
    * [maxResults] - Maximum number of operations per response.
    *

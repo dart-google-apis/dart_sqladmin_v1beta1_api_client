@@ -52,7 +52,7 @@ class BackupConfiguration {
   }
 
   /** Return String representation of BackupConfiguration */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -153,7 +153,7 @@ class BackupRun {
   }
 
   /** Return String representation of BackupRun */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -200,11 +200,11 @@ class BackupRunsListResponse {
   }
 
   /** Return String representation of BackupRunsListResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
-/** A database instance resource. */
+/** A Cloud SQL instance resource. */
 class DatabaseInstance {
 
   /** The current disk usage of the instance in bytes. */
@@ -216,7 +216,7 @@ class DatabaseInstance {
   /** Etag for this resource - a version number for the settings object in this resource. This field has no effect when passed as a request parameter. Instead, the contents of this field should be passed in an 'If-Match' http header for use in optimistic locking. */
   core.String etag;
 
-  /** Name of the database instance. This does not include the project ID. */
+  /** Name of the Cloud SQL instance. This does not include the project ID. */
   core.String instance;
 
   /** This is always sql#instance. */
@@ -225,7 +225,7 @@ class DatabaseInstance {
   /** The maximum disk size of the instance in bytes. */
   core.int maxDiskSize;
 
-  /** The project ID of the project containing the database instance. The Google apps domain is prefixed if applicable. You can find this on the project summary page of the Google APIs Console. */
+  /** The project ID of the project containing the Cloud SQL instance. The Google apps domain is prefixed if applicable. */
   core.String project;
 
   /** The geographical region. Can be us-east1 or europe-west1. Defaults to us-east1. The region can not be changed after instance creation. */
@@ -234,7 +234,7 @@ class DatabaseInstance {
   /** The user settings. */
   Settings settings;
 
-  /** The current serving state of the database instance. This can be one of the following.
+  /** The current serving state of the Cloud SQL instance. This can be one of the following.
 RUNNABLE: The instance is running, or is ready to run when accessed.
 SUSPENDED: The instance is not available, for example due to problems with billing.
 PENDING_CREATE: The instance is being created.
@@ -315,7 +315,7 @@ UNKNOWN_STATE: The state of the instance is unknown. */
   }
 
   /** Return String representation of DatabaseInstance */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -371,7 +371,7 @@ class ExportContext {
   }
 
   /** Return String representation of ExportContext */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -418,7 +418,7 @@ class ImportContext {
   }
 
   /** Return String representation of ImportContext */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -546,7 +546,7 @@ class InstanceOperation {
   }
 
   /** Return String representation of InstanceOperation */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -584,7 +584,7 @@ class InstancesDeleteResponse {
   }
 
   /** Return String representation of InstancesDeleteResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -613,7 +613,7 @@ class InstancesExportRequest {
   }
 
   /** Return String representation of InstancesExportRequest */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -651,7 +651,7 @@ class InstancesExportResponse {
   }
 
   /** Return String representation of InstancesExportResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -680,7 +680,7 @@ class InstancesImportRequest {
   }
 
   /** Return String representation of InstancesImportRequest */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -718,7 +718,7 @@ class InstancesImportResponse {
   }
 
   /** Return String representation of InstancesImportResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -756,7 +756,7 @@ class InstancesInsertResponse {
   }
 
   /** Return String representation of InstancesInsertResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -803,7 +803,7 @@ class InstancesListResponse {
   }
 
   /** Return String representation of InstancesListResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -841,7 +841,7 @@ class InstancesRestartResponse {
   }
 
   /** Return String representation of InstancesRestartResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -879,7 +879,7 @@ class InstancesRestoreBackupResponse {
   }
 
   /** Return String representation of InstancesRestoreBackupResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -917,7 +917,7 @@ class InstancesUpdateResponse {
   }
 
   /** Return String representation of InstancesUpdateResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -955,7 +955,7 @@ class OperationError {
   }
 
   /** Return String representation of OperationError */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1002,7 +1002,7 @@ class OperationsListResponse {
   }
 
   /** Return String representation of OperationsListResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1088,7 +1088,7 @@ ON_DEMAND: The instance is activated upon receiving requests. */
   }
 
   /** Return String representation of Settings */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1153,7 +1153,7 @@ class Tier {
   }
 
   /** Return String representation of Tier */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1191,7 +1191,7 @@ class TiersListResponse {
   }
 
   /** Return String representation of TiersListResponse */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
