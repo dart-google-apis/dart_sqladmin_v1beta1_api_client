@@ -228,7 +228,7 @@ class DatabaseInstance {
   /** The project ID of the project containing the Cloud SQL instance. The Google apps domain is prefixed if applicable. */
   core.String project;
 
-  /** The geographical region. Can be us-east1 or europe-west1. Defaults to us-east1. The region can not be changed after instance creation. */
+  /** The geographical region. Can be us-east1, us-central or europe-west1. Defaults to us-central. The region can not be changed after instance creation. */
   core.String region;
 
   /** The user settings. */
