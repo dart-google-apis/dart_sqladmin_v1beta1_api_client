@@ -14,7 +14,7 @@ Adding dependency to pubspec.yaml
 
 ```
   dependencies:
-    google_sqladmin_v1beta1_api: '>=0.4.6'
+    google_sqladmin_v1beta1_api: '>=0.4.7'
 ```
 
 For web applications:
