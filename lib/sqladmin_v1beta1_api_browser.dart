@@ -6,6 +6,7 @@ import 'package:google_sqladmin_v1beta1_api/src/browser_client.dart';
 import "package:google_sqladmin_v1beta1_api/sqladmin_v1beta1_api_client.dart";
 
 /** API for Cloud SQL database instance management. */
+@deprecated
 class Sqladmin extends Client with BrowserClient {
 
   /** OAuth Scope2: View and manage your data across Google Cloud Platform services */
